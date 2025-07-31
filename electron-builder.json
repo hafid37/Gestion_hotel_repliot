@@ -1,0 +1,66 @@
+{
+  "appId": "com.hotelpro.management",
+  "productName": "HotelPro Management System",
+  "description": "Comprehensive hotel management system with Arabic interface",
+  "author": "HotelPro Systems",
+  "homepage": "https://hotelpro.com",
+  "main": "electron/main.js",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*",
+    "client/dist/**/*",
+    "package.json"
+  ],
+  "extraFiles": [
+    {
+      "from": "server",
+      "to": "resources/server",
+      "filter": ["**/*"]
+    },
+    {
+      "from": "shared",
+      "to": "resources/shared",
+      "filter": ["**/*"]
+    }
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "electron/icon.ico",
+    "publisherName": "HotelPro Management Systems"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "نظام إدارة الفندق",
+    "installerLanguages": ["en", "ar"]
+  },
+  "mac": {
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      }
+    ],
+    "icon": "electron/icon.icns"
+  },
+  "linux": {
+    "target": [
+      {
+        "target": "AppImage",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "electron/icon.png",
+    "category": "Office"
+  }
+}
